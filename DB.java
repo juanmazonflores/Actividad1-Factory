@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 public interface DB{
     public Connection conectar();
-    void escribir();
-    void leer();
+    void escribir(Connection conexion);
+    void leer(Connection conexion);
 }
 
