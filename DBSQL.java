@@ -28,13 +28,24 @@ public class DBSQL implements DB {
 
     @Override
     public void leer(Connection conexion) {
+        String nombre;
+        String direccion;
+        String telefono;
+        String observaciones;
+
         try {
+
             Statement s = conexion.createStatement();
             ResultSet rs = s.executeQuery ("select * from telefonos");
-            while (rs.next())
-            {
-            System.out.println (rs.getInt (1) + " " + rs.getString (2)+ " " + rs.getDate(3));
+            System.out.println("Los datos devueltos son:");
+            while(rs.next()){
+                nombre = rs.getString("nombre");
+                direccion = rs.getString("dirección");
+                telefono = rs.getString("teléfono");
+                observaciones = rs.getString("observaciones");
+                System.out.println(nombre + "\t" + direccion + "\t" + telefono  + "\t" + observaciones);
             }
+
         } catch (Exception e) {
             
         }
@@ -46,11 +57,9 @@ public class DBSQL implements DB {
         
         try {
             Statement s = conexion.createStatement();
-            ResultSet rs = s.executeQuery ("INSERT INTO telefonos VALUES ('Juan Perez', 'Zaragoza','976111222','Es el profesor')");
-            while (rs.next())
-            {
-            System.out.println (rs.getInt (1) + " " + rs.getString (2)+ " " + rs.getDate(3));
-            }
+            String st_inserta ="INSERT INTO telefonos VALUES ('Maria Perez', 'Lopez','123123123','Es la administradora')" ;
+            s.executeUpdate(st_inserta);
+            System.out.println("Se han insertado los datos con exito");
         } catch (Exception e) {
             
         }

@@ -6,6 +6,8 @@ public class Main {
             DB adapter = DBFactory.getDBAdapter();
             Connection connection = adapter.conectar();
             System.out.println("Resultado de conexion: " + (!connection.isClosed()));
+            adapter.escribir(connection);
+            adapter.leer(connection);
         } catch (Exception e) {
             e.printStackTrace();
         }
