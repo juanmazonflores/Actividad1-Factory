@@ -59,7 +59,7 @@ public class DBMySQL implements DB {
     public void escribir(Connection conexion) {
         try {
             Statement s = conexion.createStatement();
-            String st_inserta ="INSERT INTO telefonos VALUES ('Maria Perez', 'Lopez','123123123','Es la administradora')" ;
+            String st_inserta ="INSERT INTO telefonos VALUES ('Rene Uribe', 'Lopez','143323123','Es el alumno')" ;
             s.executeUpdate(st_inserta);
             System.out.println("Se han insertado los datos con exito");
 
