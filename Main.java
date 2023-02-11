@@ -3,6 +3,9 @@ import java.sql.Connection;
 public class Main {
     public static void main(String[] args) {
         try {
+            //Se obtiene del archivo de configuracion 
+            //que tipo de base de datos se utilizara
+            //ver dbconfig.properties
             String dbType = ArchivoConfiguracion.getDBType();
             System.out.println("DBType => " + dbType);
             switch(dbType){
